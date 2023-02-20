@@ -1,2 +1,5 @@
-# s2223v-li41d-li41n
-Concurrent Programming - 2023 - LEIC41D / LEIC41N
+# Concurrent Programming - 2021/2022 - LEIC41D and LEIC41N
+
+* [Documentation](docs), including [lecture notes](docs/lecture-notes)
+* [JVM examples](jvm) (mostly Kotlin)
+* [Native examples](native) (C and assembly)
