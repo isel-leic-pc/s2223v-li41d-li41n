@@ -17,9 +17,15 @@ See link:../calendar.md[calendar] for a more detailed programme, including *rele
 
 ## Evaluation
 
-See https://2223moodle.isel.pt/course/view.php?id=6715[Moodle].
+* Final test on the exam dates.
+** Minimum classification is 8,0.
+** Can attend both exam dates.
+* Three _exercise sets_.
+** First and second sets must be done individually.
+** Third set can be done undividually or in group of at most 3 elements.
+** The exercise sets are delivered via Git repositories hosted on the https://github.com/isel-leic-pc GitHub organization. 
 
-The exercise sets are delivered via Git repositories hosted on the https://github.com/isel-leic-pc GitHub organization. 
+See https://2223moodle.isel.pt/course/view.php?id=6715[Moodle] for more details about the evaluation process, namely how is the final grade is computed.
 
 ## Resources
 
@@ -28,17 +34,17 @@ The exercise sets are delivered via Git repositories hosted on the https://githu
 
 ## Logistics
 
-- JVM development environment.
-  - Kotlin programming language
-  - JDK 17.
-  - Gradle build system.
-  - IDE (e.g. https://www.jetbrains.com/idea/download/[IntelliJ Community Edition]).
+* JVM development environment.
+** Kotlin programming language
+** JDK 17.
+** Gradle build system.
+** IDE (e.g. https://www.jetbrains.com/idea/download/[IntelliJ Community Edition]).
 
-- Slack and Zoom for remote and asynchronous support.
-  - See https://2223moodle.isel.pt/course/view.php?id=6716[Moodle] for details.
+* Slack and Zoom for remote and asynchronous support.
+** See https://2223moodle.isel.pt/course/view.php?id=6716[Moodle] for details.
 
 ## Requirements
 
-- Student requirements:
-  - Able to understand and create Kotlin language programs (_AED_ level).
-  - Understanding of the x86/x64 assembly language model and of how high-level structured programming concepts are mapped into assembly language (_PSC_ level).
+* Student requirements:
+** Able to understand and create Kotlin language programs (TDS level).
+** Understanding of the x86/x64 assembly language model and of how high-level structured programming concepts are mapped into assembly language (PSC level).
