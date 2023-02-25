@@ -1,0 +1,20 @@
+= Planning
+
+== Week 1
+
+=== Lecture 1: 2023-02-27
+
+* Course introduction.
+** Goals.
+** Contents.
+** Evaluation.
+** Resources.
+** link:lecture-notes/0-course-introduction.adoc[Lecture Note]
+
+* Introduction to the JVM threading model
+** Motivation: a echo TCP/IP server capable of handling multiple connected clients.
+*** Handling a single client at a time.
+*** Handling multiple clients simultaneously.
+** Thread creation.
+** Basic thread states.
+** Synchronization with termination.
