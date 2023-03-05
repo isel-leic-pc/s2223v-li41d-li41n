@@ -1,0 +1,43 @@
+
+= Lecture summaries
+
+== Week 1
+
+=== Lecture 1: 2023-02-27
+
+* Course introduction.
+** Goals.
+** Contents.
+** Evaluation.
+** Resources.
+** link:lecture-notes/0-course-introduction.adoc[Lecture Note]
+** https://2223moodle.isel.pt/course/view.php?id=6715[Moodle]
+
+
+=== Lecture 2: 2023-01-02
+
+* Introduction to the JVM threading model.
+** Motivation: a echo TCP/IP server capable of handling multiple connected clients.
+*** Handling a single client at a time.
+*** Handling multiple clients simultaneously.
+*** See link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture2[EchoServer sketch].
+
+** Thread APIs in the JVM.
+*** Thread creation.
+*** Synchronization with thread termination.
+
+** Creating unit tests using multiple threads.
+*** Non-deterministic behavior.
+*** Thread termination synchronization.
+*** See link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41n/lecture2[Test sketches].
+
+* Sharing mutable data between multiple threads.
+** Identification of when sharing exists.
+** Data sharing hazards.
+** Avoiding data sharing hazards by avoiding the data sharing.
+*** *Confining* the data access to a single thread.
+
+* See also
+** link:../jvm/src/main/kotlin/pt/isel/pc/apps/echoserver[Echo server variants using a single thread and using multiple threads].
+** link:../jvm/src/test/kotlin/pt/isel/pc/basics/ThreadBasicsTests.kt[Set of tests illustrating the basic thread functionality, namely creation and termination synchronization].
+** link:lecture-notes/2-threads-in-the-jvm.adoc[Lecture notes about threads in the JVM].
