@@ -20,7 +20,7 @@ dependencies {
 
     testImplementation(kotlin("test"))
 
-    ktlint("com.pinterest:ktlint:0.44.0") {
+    ktlint("com.pinterest:ktlint:0.48.2") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.EXTERNAL))
         }
