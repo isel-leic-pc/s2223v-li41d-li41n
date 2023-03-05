@@ -98,8 +98,6 @@ class ThreadBasicsTests {
         log.info("New thread ended, finishing test")
     }
 
-    internal class IntHolder(var value: Int)
-
     @Test
     fun create_thread_using_a_lambda_and_a_mutable_shared_variable() {
         var localVariableOfMainThread = 42
@@ -111,7 +109,6 @@ class ThreadBasicsTests {
         // This is simultaneously useful and dangerous, since those *local* variables will now
         // be accessible from *multiple* threads.
         val th = Thread {
-
             // Notice how in this thread we are using a local variable from a different thread,
             // (the main thread).
             log.info(
