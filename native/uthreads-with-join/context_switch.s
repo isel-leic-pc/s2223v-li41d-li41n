@@ -53,9 +53,12 @@ context_switch_and_free:
     // restoring the stack pointer from the next_thread descriptor
 	movq (%rsi), %rsp
 
-    // the call to free is done on the next thread stack
-    // otherwise we would be freeing the stack the call is being made
-    call free
+	// freeing the curr_thread stack and assigning 0 to curr_thread->stack (located on 8(%rdi))
+    pushq %rdi
+	movq 8(%rdi), %rdi
+	call free
+	popq %rdi
+	movq $0, 8(%rdi)
 	
 	popq %r15
 	popq %r14

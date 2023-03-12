@@ -14,15 +14,28 @@ void thread_routine(uint64_t ix)
   printf("thread %ld ending\n", ix);
 }
 
+void creator_thread(uint64_t ignore)
+{
+  uthread_t *ths[3];
+  for (int i = 0; i < 3; ++i)
+  {
+    ths[i] = ut_create(thread_routine, i);
+  }
+  for (int i = 0; i < 3; ++i)
+  {
+    printf("Creator thread waiting for thread %d\n", i);
+    ut_join(ths[i]);
+    ut_free(ths[i]);
+  }
+}
+
 int main()
 {
   printf("main starting\n");
   ut_init();
-  for (int i = 0; i < 3; ++i)
-  {
-    ut_create(thread_routine, i);
-  }
+  uthread_t *thread = ut_create(creator_thread, 0);
   ut_run();
+  ut_free(thread);
   printf("main ending\n");
 
   return 0;
