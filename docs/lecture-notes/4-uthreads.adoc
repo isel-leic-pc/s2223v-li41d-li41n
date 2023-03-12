@@ -139,7 +139,7 @@ Saving the `rsp` register into the current thread descriptor completes the savin
 The next step is to restore the context for `next_thread`.
 In order to do so, we need to first answer the following question: where is this context and what is its shape?
 
-* If `next_thread` already ran in the past, then it execution was suspended due to a `context_switch` execution (where it was the running thread) and therefore its context is saved on its own stack, exactly as shown on <<img-uthreads-curr-thread-stack, Figure {counter:img-uthreads-curr-thread-stack}>>
+* If `next_thread` already ran in the past, then it execution was suspended due to a `context_switch` execution (where it was the running thread) and therefore its context is saved on its own stack, exactly as shown on xref:img-uthreads-curr-thread-stack[xrefstyle=short].
 
 * If `next_thread` never ran in the past, then `context_switch` didn't yet preserved its context. However, we can make sure that thread creation initializes the thread stack with that exact same structure. This will allows us to write the restore part of `context_switch` without needing to know if `next_thread` already ran or not. Independently of that, its top of stack will have the same structure.
 
@@ -219,7 +219,7 @@ This function starts by allocating space for two important things: the thread de
 The current implementation uses a single block of memory to contain both things: the descriptor will be located at block start;
 the stack will start from the block end, since the stack grows downward.
 
-The `ut_create`` function then initializes the top of the stack _as if_ a `context_switch` had run. 
+The `ut_create` function then initializes the top of the stack _as if_ a `context_switch` had run. 
 As described in the <<sec-context-switch, `context_switch` section>>, this will be assumed when the `context_switch` runs.
 For that, a `uthread_context` structure is mapped into the top end of the stack.
 

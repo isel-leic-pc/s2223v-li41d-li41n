@@ -1,5 +1,6 @@
 
 = Lecture summaries
+:toc: auto
 
 == Week 1
 
@@ -41,3 +42,39 @@
 ** link:../jvm/src/main/kotlin/pt/isel/pc/apps/echoserver[Echo server variants using a single thread and using multiple threads].
 ** link:../jvm/src/test/kotlin/pt/isel/pc/basics/ThreadBasicsTests.kt[Set of tests illustrating the basic thread functionality, namely creation and termination synchronization].
 ** link:lecture-notes/2-threads-in-the-jvm.adoc[Lecture notes about threads in the JVM].
+
+== Week 2
+
+=== Lecture 3: 2023-01-06
+
+* How to have two thread running simultaneously using two CPUs, sharing the same memory.
+** Characterization of the _code_, _stack_, _data_ memory blocks.
+*** _code_ - read-only, shared between threads.
+*** _stack_ - read-write, exclusive for each thread.
+*** _data_ - read-write, shared between threads.
+
+* How to have more threads than CPUs, by using time multiplexing of threads into processors.
+*** The _context switch_ concept.
+
+* The main states of a thread and the transition between thems.
+** The _ready_ and _running_ states.
+*** The _ready queue_ has the container for all threads in the _ready_ state.
+** The _not-ready_ state and the concept of non-busy waiting ("espera passiva").
+** The _not-started_ and _finished_ states.
+
+* The _scheduler_ concept.
+** Examples of _scheduling_ policies.
+** _Cooperative_ scheduling versus _preemptive_ scheduling.
+
+* Study of the `uthreads` pedagogical multi-threading cooperative user-mode system.
+** The design and implementation of the `context_switch` function.
+
+=== Lecture 4: 2023-01-09
+
+* Continuing with the study of the `uthreads` system.
+** Review the design and implementation of the `context_switch` function.
+** Thread creation and termination.
+** Thread scheduling.
+** Adding thread join coordination to the `uthreads` system as a way to illustrate the _not-ready_ state and the transition into and from this state.
+
+* See link:lecture-notes/4-uthreads.adoc[`uthreads` - User Mode Cooperative Threads].
