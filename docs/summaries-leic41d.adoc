@@ -15,7 +15,7 @@
 ** https://2223moodle.isel.pt/course/view.php?id=6715[Moodle]
 
 
-=== Lecture 2: 2023-01-02
+=== Lecture 2: 2023-03-02
 
 * Introduction to the JVM threading model.
 ** Motivation: a echo TCP/IP server capable of handling multiple connected clients.
@@ -45,7 +45,7 @@
 
 == Week 2
 
-=== Lecture 3: 2023-01-06
+=== Lecture 3: 2023-03-06
 
 * How to have two thread running simultaneously using two CPUs, sharing the same memory.
 ** Characterization of the _code_, _stack_, _data_ memory blocks.
@@ -66,7 +66,7 @@
 ** Examples of _scheduling_ policies.
 ** _Cooperative_ scheduling versus _preemptive_ scheduling.
 
-=== Lecture 4: 2023-01-09
+=== Lecture 4: 2023-03-09
 
 * Study of the `uthreads` pedagogical multi-threading cooperative user-mode system.
 ** Design and implementation of the `context_switch` function.
@@ -74,3 +74,29 @@
 ** Thread scheduling.
 
 * See link:lecture-notes/4-uthreads.adoc[`uthreads` - User Mode Cooperative Threads].
+
+== Week 3
+
+=== Lecture 3: 2023-03-13
+
+* Continuing with the `uthreads` pedagogical multi-threading cooperative user-mode system.
+** Control synchronization and the implementation of `ut_join` - synchronization with thread termination.
+** See link:../native/uthreads-with-join[`uthreads-with-join`]
+
+* Data synchronization
+** Concurrency hazards when sharing mutable data between multiple threads.
+** Data synchronization using mutual exclusion, implemented via locks.
+** The JVM https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html[`Lock` interface] and the https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html[`ReentrantLock` class].
+
+=== Lecture 4: 2023-03-16
+
+* Continuing with data synchronization.
+** Identifying data sharing between multiple threads. Using the _echo server_ application has an example.
+** The JVM https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html[`Lock` interface] and the https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html[`ReentrantLock` class].
+** Implementation of a lock-based counter and usage on the _echo server_ application.
+
+* Control synchronization
+** Example: limiting the number of handled connections on the _echo server_ application, implemented by waiting for the number of handled connections to be below the maximum before calling `accept` to accept a new connection.
+** The _synchronizer_ concept as a way to centralize control synchronization logic.
+** The _monitor_ concept, as a building block for the construction of custom synchronizers by providing a coordinated mechanism for both data synchronization and control synchronization.
+** Implementation of a simple unary semaphore using conditions, without support for timeouts nor fairness.
