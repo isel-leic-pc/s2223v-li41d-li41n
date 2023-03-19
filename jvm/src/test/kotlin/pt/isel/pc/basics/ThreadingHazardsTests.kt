@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Assumptions.assumeTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
-import java.util.Collections
+import java.util.*
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
+import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 private val log = LoggerFactory.getLogger(ThreadingHazardsTests::class.java)
@@ -128,10 +130,10 @@ class ThreadingHazardsTests {
     fun `loosing increments with a synchronized map and atomics`() {
         val threads = List(N_OF_THREADS) {
             Thread {
-                (0 until N_OF_REPS).forEach { index ->
-                    val data = map[index]
+                (0 until N_OF_REPS).forEach { key ->
+                    val data = map[key]
                     if (data == null) {
-                        map[index] = AtomicInteger(1)
+                        map[key] = AtomicInteger(1)
                     } else {
                         data.incrementAndGet()
                     }
@@ -148,6 +150,32 @@ class ThreadingHazardsTests {
             }
 
         assertNotEquals(N_OF_THREADS * N_OF_REPS, totalCount)
+    }
+
+    // Using `computeIfAbsent` to have an atomic check-then-act
+    private val concurrentMap: MutableMap<Int, AtomicInteger> = ConcurrentHashMap()
+
+    @Test
+    fun `NOT loosing increments with a ConcurrentHashMap and computeIfAbsent`() {
+        val threads = List(N_OF_THREADS) {
+            Thread {
+                (0 until N_OF_REPS).forEach { key ->
+                    concurrentMap.computeIfAbsent(key) {
+                        AtomicInteger(0)
+                    }.incrementAndGet()
+                }
+            }.apply(Thread::start)
+        }
+
+        threads.forEach(Thread::join)
+
+        val totalCount = concurrentMap.values
+            .map { it.get() }
+            .reduce { acc, elem ->
+                acc + elem
+            }
+
+        assertEquals(N_OF_THREADS * N_OF_REPS, totalCount)
     }
 
     /**************************************************************************
