@@ -34,7 +34,7 @@ class ThreadSafeCounter {
 }
 
 class TheSynchronizer(
-    private val maximumConnections: Int
+    private val maximumConnections: Int,
 ) {
     private var nOfActiveConnections: Int = 0
     private val theLock: Lock = ReentrantLock()
@@ -56,7 +56,7 @@ class TheSynchronizer(
     fun waitForActiveConnectionsBelowMaximum() = theLock.withLock {
         if (nOfActiveConnections < maximumConnections) {
             // fast-path
-            return@withLock
+            return
         }
         // wait-path
         while (!(nOfActiveConnections < maximumConnections)) {
@@ -66,7 +66,7 @@ class TheSynchronizer(
 }
 
 class Semaphore(
-    initialAvailableUnits: Int
+    initialAvailableUnits: Int,
 ) {
 
     private var availableUnits: Int = initialAvailableUnits

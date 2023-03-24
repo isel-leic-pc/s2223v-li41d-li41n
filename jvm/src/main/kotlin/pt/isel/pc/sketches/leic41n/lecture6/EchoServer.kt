@@ -38,7 +38,7 @@ class ThreadSafeCounter {
 
 // The synchronizer
 class Semaphore(
-    maxUnits: Int
+    maxUnits: Int,
 ) {
     private var nOfUnits = maxUnits
     private val lock: Lock = ReentrantLock()
@@ -51,14 +51,14 @@ class Semaphore(
         // fast-path?
         if (nOfUnits > 0) {
             nOfUnits -= 1
-            return@withLock
+            return
         }
         var remainingNanos = timeout.inWholeNanoseconds
         while (true) {
             remainingNanos = condition.awaitNanos(remainingNanos)
             if (nOfUnits > 0) {
                 nOfUnits -= 1
-                return@withLock
+                return
             }
             if (remainingNanos <= 0) {
                 // timeout
