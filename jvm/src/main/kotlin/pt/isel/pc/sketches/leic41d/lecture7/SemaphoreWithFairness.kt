@@ -26,10 +26,12 @@ class SemaphoreWithFairness(
             val localNode = queue.enqueue(Thread.currentThread())
             var remainingNanos: Long = timeout.inWholeNanoseconds
             while (true) {
+                // FIXME this version is still missing interrupt handling, which was only presented on lecture 8
                 remainingNanos = condition.awaitNanos(remainingNanos)
                 if (availableUnits > 0 && queue.headValue == Thread.currentThread()) {
                     queue.remove(localNode)
                     availableUnits -= 1
+                    // FIXME signalling is required because state was changed
                     return true
                 }
                 if (remainingNanos <= 0) {

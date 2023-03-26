@@ -42,6 +42,7 @@ class SemaphoreWithFairness(
             if (nOfUnits > 0 && requestQueue.headValue == Thread.currentThread()) {
                 nOfUnits -= 1
                 requestQueue.remove(localNode)
+                // FIXME signalling is required because state was changed
                 return
             }
             if (remainingNanos <= 0) {

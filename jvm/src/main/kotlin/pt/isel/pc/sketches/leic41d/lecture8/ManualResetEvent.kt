@@ -4,6 +4,10 @@ import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 import kotlin.time.Duration
 
+/**
+ * ManualResetEvent version using a monitor-style implementation,
+ * where a set followed by a reset may result in waiting threads to NOT return from the [waitUntilSet]
+ */
 class ManualResetEvent {
 
     private var value: Boolean = false

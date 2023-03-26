@@ -47,6 +47,7 @@ class SemaphoreWithFairnessAndSpecificSignalling(
                 if (availableUnits > 0 && requestQueue.isHeadNode(localNode)) {
                     requestQueue.remove(localNode)
                     availableUnits -= 1
+                    // FIXME signalling is required because state was changed
                     return true
                 }
                 if (remainingNanos <= 0) {
