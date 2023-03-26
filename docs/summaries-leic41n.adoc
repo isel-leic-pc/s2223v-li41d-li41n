@@ -81,7 +81,7 @@
 
 == Week 3
 
-=== Lecture 3: 2023-03-13
+=== Lecture 5: 2023-03-13
 
 * Continuing with the `uthreads` pedagogical multi-threading cooperative user-mode system.
 ** Control synchronization and the implementation of `ut_join` - synchronization with thread termination.
@@ -92,7 +92,7 @@
 ** Data synchronization using mutual exclusion, implemented via locks.
 ** The JVM https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html[`Lock` interface] and the https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html[`ReentrantLock` class].
 
-=== Lecture 4: 2023-03-16
+=== Lecture 6: 2023-03-16
 
 * Continuing with data synchronization.
 ** Identifying data sharing between multiple threads. Using the _echo server_ application has an example.
@@ -104,3 +104,24 @@
 ** The _synchronizer_ concept as a way to centralize control synchronization logic.
 ** The _monitor_ concept, as a building block for the construction of custom synchronizers by providing a coordinated mechanism for both data synchronization and control synchronization.
 ** Implementation of a simple unary semaphore using conditions, without support for timeouts nor fairness.
+
+== Week 4
+
+=== Lecture 7: 2023-03-20
+
+* Continuing with the design of synchronizers based on monitors.
+** Implementing a timeout with cancellation by timeout on the `acquire` function.
+** Implementing a semaphore with fairness on granting units to acquirers by mantaining a list of acquiring threads. 
+
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture7[Lecture 7 sketches]. 
+
+=== Lecture 8: 2023-03-23
+
+* Threads interruptions in the JVM and the behavior of blocking functions.
+* Continuing with the design of synchronizers based on monitors.
+** Specific notification: avoid using `signalAll` by using a new `Condition` per awaiting thread.
+** The kernel-style design methodology for monitor-based synchronizers.
+*** Implementation of an unary semaphore with fairness using kernel-style. 
+*** Implementation of an N-ary semaphore with fairness using kernel-style.   
+
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture7[Lecture 8 sketches]. 
