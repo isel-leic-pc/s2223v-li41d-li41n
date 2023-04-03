@@ -124,4 +124,20 @@
 *** Implementation of an unary semaphore with fairness using kernel-style. 
 *** Implementation of an N-ary semaphore with fairness using kernel-style.   
 
-** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture7[Lecture 8 sketches]. 
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture8[Lecture 8 sketches]. 
+
+== Week 5
+
+=== Lecture 9: 2023-03-27
+
+* The _thread pool_ concept
+** Motivation.
+** Variants.
+** Implementation of a simple thread pool using a dynamic number of threads.
+
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture9[Lecture 9 sketches]. 
+
+
+=== Lecture 10: 2023-03-30
+
+* Laboratory class, supporting the development of the first set of exercises.
