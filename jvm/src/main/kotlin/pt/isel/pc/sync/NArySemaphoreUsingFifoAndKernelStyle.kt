@@ -49,6 +49,7 @@ class NArySemaphoreUsingFifoAndKernelStyle(
                     remainingNanos = localRequest.value.condition.awaitNanos(remainingNanos)
                 } catch (e: InterruptedException) {
                     if (localRequest.value.isDone) {
+                        Thread.currentThread().interrupt()
                         return true
                     }
                     queue.remove(localRequest)
