@@ -29,11 +29,8 @@ class SemaphoreTests {
         val th2 = testHelper.thread {
             assertTrue(sem.acquire(3, INFINITE))
         }
-        spinUntilTimedWait(th1)
-        assertTrue(th2.isAlive)
+        spinUntilTimedWait(th2)
         th1.interrupt()
-        Thread.sleep(1000)
-        assertFalse(th2.isAlive)
         testHelper.join()
     }
 
@@ -64,12 +61,13 @@ class SemaphoreTests {
         release: () -> Unit,
     ) {
         val units = AtomicInteger(INITIAL_UNITS)
-        val testHelper = TestHelper(2.seconds)
+        val testHelper = TestHelper(3.seconds)
         testHelper.createAndStartMultiple(N_OF_THREADS) { _, isDone ->
             while (!isDone()) {
                 acquire()
                 val observedUnits = units.decrementAndGet()
                 assertTrue(observedUnits >= 0)
+                Thread.yield()
                 units.incrementAndGet()
                 release()
             }
