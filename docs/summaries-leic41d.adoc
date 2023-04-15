@@ -135,7 +135,25 @@
 
 ** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture9[Lecture 9 sketches]. 
 
-
 === Lecture 10: 2023-03-30
 
 * Laboratory class, supporting the development of the first set of exercises.
+
+== Week 6
+No classes on Thursday due to the Easter break.
+
+=== Lecture 11: 2023-04-03
+* Continuation of the previous lecture on the design and implementation of a simple thread pool.
+* Challanges and techniques for testing synchronizers.
+** See: link:..../jvm/src/test/kotlin/pt/isel/pc/sync[Test examples]
+
+== Week 6
+No classes on Monday due to the Easter break.
+
+=== Lecture 12: 2023-04-13
+
+* Laboratory class, supporting the development of the first set of exercises.
+
+
+
+
