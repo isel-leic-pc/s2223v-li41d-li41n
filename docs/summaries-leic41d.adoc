@@ -147,13 +147,39 @@ No classes on Thursday due to the Easter break.
 * Challanges and techniques for testing synchronizers.
 ** See: link:..../jvm/src/test/kotlin/pt/isel/pc/sync[Test examples]
 
-== Week 6
+== Week 7
 No classes on Monday due to the Easter break.
 
 === Lecture 12: 2023-04-13
 
 * Laboratory class, supporting the development of the first set of exercises.
 
+== Week 8
 
+=== Lecture 13: 2023-04-17
 
+* The Java Memory Model (JMM)
+** Motivation for the existance of a memory model.
+** Sequential consistency semantics and its absense on the (JMM).
+** The _happens-before_ partial order relation.
+** The guarantees provided for actions related by _happens-before_.
+** The construction rules for the _happens-before_ relation.
 
+* Bibliography: Chapter 16.
+
+=== Lecture 14: 2023-04-20
+
+* The Java Memory Model (continuation)
+* Volatile memory actions and associated _happens-before_ rules.
+** Application examples:
+*** Sharing an object via a non-volatile reference.
+*** Sharing an object via a concurrent collection.
+*** Sharing an object via a volatile reference.
+* _happens-before_ guarantees provided by synchronizers implemented using monitors.
+* Lock free algoritmos:
+** Designing algorithms using CAS (compare-and-set) operations.
+** Examples modulo-counter and Treiber stack.
+
+* Bibliography: Chapter 16.
+* Bibliography: Chapter 16.
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture14[Lecture 14 sketches]. 
