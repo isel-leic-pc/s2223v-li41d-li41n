@@ -2,7 +2,6 @@ package pt.isel.pc.lockfree
 
 import java.util.concurrent.atomic.AtomicReference
 
-
 class TreiberStackWithABA<T> {
 
     class Node<T>(
