@@ -182,4 +182,27 @@ No classes on Monday due to the Easter break.
 
 * Bibliography: Chapter 16.
 * Bibliography: Chapter 16.
-** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture14[Lecture 14 sketches]. 
+** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture14[Lecture 14 sketches].
+
+== Week 9
+
+=== Lecture 15: 2023-04-24
+
+* Lock free algorithms (continuation):
+** Completing the Triber stack design.
+** The ABA problem on lock free algorithms.
+*** Example using a modified version of the Treiber stack, receiving and returning the list nodes.
+** Analysis of the _lazy initialization_ functionalities in Kotlin
+*** https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/src/kotlin/util/LazyJVM.kt#L55[Implementation using _double-checked locking_].
+*** https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/src/kotlin/util/LazyJVM.kt#L90[Implementation using ``compareAndSet``].
+*** Analysis of previous versions:
+**** https://github.com/JetBrains/kotlin/commit/74f39c237562b0afdb4085ae2171be37e6331a42#diff-e8ed8d0483b5a4578bf512c1937db64981af2afad2e1dbd4ce990b88de829af7R51[First version, with an error on an assignment].
+**** https://github.com/JetBrains/kotlin/commit/1145cc0d1b0aa2ea946704d44a7fcf02b55a6210[Implementation missing a volatle].
+**** https://github.com/JetBrains/kotlin/commit/5d13b1681fb04e52b4be11738e12812e8e4ec042#diff-e8ed8d0483b5a4578bf512c1937db64981af2afad2e1dbd4ce990b88de829af7[Corrected version].
+
+* See: link:../jvm/src/main/kotlin/pt/isel/pc/lockfree[lock free examples] and link:../jvm/src/test/kotlin/pt/isel/pc/lockfree[tests].
+
+=== Lecture 16: 2023-04-27
+
+* Laboratory class, supporting the development of the first set of exercises.
+

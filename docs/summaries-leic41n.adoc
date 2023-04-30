@@ -185,3 +185,18 @@ No classes on Monday due to the Easter break.
 
 * Bibliography: Chapter 16.
 ** See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture14[Lecture 14 sketches]. 
+
+== Week 9
+
+=== Lecture 15: 2023-04-24
+
+* Lock free algorithms (continuation):
+** Completing the Triber stack design.
+** The ABA problem on lock free algorithms.
+*** Example using a modified version of the Treiber stack, receiving and returning the list nodes.
+
+* See: link:../jvm/src/main/kotlin/pt/isel/pc/lockfree[lock free examples] and link:../jvm/src/test/kotlin/pt/isel/pc/lockfree[tests].
+
+=== Lecture 16: 2023-04-27
+
+* Laboratory class, supporting the development of the first set of exercises.
