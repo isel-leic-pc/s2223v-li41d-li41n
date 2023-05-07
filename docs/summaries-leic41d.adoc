@@ -206,3 +206,21 @@ No classes on Monday due to the Easter break.
 
 * Laboratory class, supporting the development of the first set of exercises.
 
+== Week 10
+
+No lecture on Monday due to national holiday.
+
+=== Lecture 17: 2023-05-04
+
+* Implicit monitors in the Java platform.
+* Java Memory Model guarantees for final fields.
+* Futures in the Java platform
+** Synchronous and asynchronous interfaces.
+** The `Future` interface
+*** Polling and blocking for completion.
+** The `CompletableFuture` concrete class.
+*** Combining `CompletableFuture` with functions or other `CompletableFuture` to produce resulting `CompletableFuture`.
+**** Examples: `thenApply`, `thenCompose`, `handle`.
+**** Creating custom combinatores: `catch` combinator.
+
+See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture17[Lecture 17 sketches].
