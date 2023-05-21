@@ -199,7 +199,7 @@ No classes on Monday due to the Easter break.
 
 === Lecture 16: 2023-04-27
 
-* Laboratory class, supporting the development of the first set of exercises.
+* Laboratory class, supporting the development of the second set of exercises.
 
 == Week 10
 
@@ -218,4 +218,43 @@ No lecture on Monday due to national holiday.
 **** Examples: `thenApply`, `thenCompose`, `handle`.
 **** Creating custom combinatores: `catch` combinator.
 
-See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture17[Lecture 17 sketches].
+See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture17[Lecture 17 sketches (main)] and link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41n/lecture17[Lecture 17 sketches (tests)]
+
+== Week 11
+
+=== Lecture 18: 2023-05-08
+
+* Continuing the study of futures in the JVM platform::
+** Creating the `all` combinator.
+** Synchronous and asynchronous completion of futures. The `NnnnAsync` method variants. Comparison with the JavaScript semantics.
+
+See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture18[Lecture 18 sketches (main)] and link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41n/lecture18[Lecture 18 sketches (tests)]
+
+=== Lecture 19: 2023-05-11
+
+* Laboratory class, supporting the development of the second set of exercises.
+
+== Week 23
+
+=== Lecture 20: 2023-05-15
+
+* Kotlin coroutines and asynchronous programming
+** Motivation: limits on the use of OS threads, namely on thread-per-request and thread-per-client software organizations.
+** Kotlin coroutines as suspendable sequential computations.
+** Relation between coroutines and threads and comparison with the relation between threads and CPUs.
+** Usage examples.
+
+See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture20[Lecture 20 sketches]
+
+=== Lecture 21: 2023-05-18
+
+* Kotlin coroutines and structured concurrency
+** The structured concurrency concept and the requirements for coroutine creation.
+** The coroutine scope concept.
+** Parent-child relations between coroutines and their usage on cancellation and error handling.
+** The `Job` interface and the associated state machine.
+
+See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41n/lecture21[Lecture 21 sketches]
+
+
+
