@@ -239,7 +239,7 @@ See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41n/lecture18[Lecture 1
 
 * Laboratory class, supporting the development of the second set of exercises.
 
-== Week 23
+== Week 12
 
 === Lecture 20: 2023-05-15
 
@@ -260,3 +260,34 @@ See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture20[Lecture 2
 ** The `Job` interface and the associated state machine.
 
 See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture21[Lecture 21 sketches]
+
+== Week 13
+
+=== Lecture 22: 2023-05-22
+
+* Kotlin language `suspend` functions.
+** Direct Style vs. https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html#continuation-passing-style[Continuation Passing Style (CPS)].
+** Examples calling suspend funcions as regular functions, and implementing suspend functions as regular functions.
+** The `suspendCoroutine` function as a way to obtain continuations.
+
+See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture22[Lecture 22 sketches].
+
+=== Lecture 23: 2023-05-25
+
+* Continuation of the previous lecture about `suspend` functions and the _continuation passing style_.
+** Using the `suspendCoroutine` function and the differences between calling the continuation synchronously and asynchronously.
+** Behaviour of the underlying threads between suspension points.
+
+* Implementation of synchronizers with suspend interface
+** Using the `suspendCoroutine` function to capture continuations and storing them in the synchronizer data structures.
+** The need for data synchronization due to thread-level concurrency.
+** Calling continuations outside mutual-exclusion.
+** Implementation of a countdown latch with a `suspend` `await`, still without supporting cancellation.
+
+* The Java NIO2 (New I/O 2) types for asynchronous Input/Output
+** The https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/channels/AsynchronousSocketChannel.html[`AsynchronousSocketChannel`] and https://docs.oracle.com/en/java/javase/17/docs/api//java.base/java/nio/channels/AsynchronousServerSocketChannel.html[`AsynchronousServerSocketChannel`] classes.
+** The asynchronous interfaces based in the https://docs.oracle.com/en/java/javase/17/docs/api//java.base/java/nio/channels/CompletionHandler.html[CompletionHandler] callback interface.
+** The challenges of writing sequential algorithms using callback interfaces.
+** Creating `suspend` functions to use asynchronous channels in direct style (i.e. synchronously), without blocking threads.
+
+See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture23[Lecture 23 sketches (main)] and link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture23[Lecture 23 sketches (test)].

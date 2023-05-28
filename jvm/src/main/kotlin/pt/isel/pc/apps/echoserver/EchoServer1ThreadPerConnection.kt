@@ -50,6 +50,7 @@ class EchoServer1ThreadPerConnection {
             socket.use {
                 socket.getInputStream().bufferedReader().use { reader ->
                     socket.getOutputStream().bufferedWriter().use { writer ->
+                        Thread.sleep(1000)
                         writer.writeLine("Hi! You are client number %s", clientNo.toString())
                         while (true) {
                             val line = reader.readLine()

@@ -1,4 +1,4 @@
-package pt.isel.pc.sketches.leic41n.lecture22
+package pt.isel.pc.sketches.leic41d.lecture23
 
 import org.slf4j.LoggerFactory
 import java.util.concurrent.locks.ReentrantLock
@@ -10,41 +10,38 @@ import kotlin.coroutines.suspendCoroutine
 class SuspendableCountDownLatch(
     initialCount: Int,
 ) {
-    private var counter = initialCount
-    private val continuationList = mutableListOf<Continuation<Unit>>()
+    private var count: Int = initialCount
+    private var continuationList = mutableListOf<Continuation<Unit>>()
     private val lock = ReentrantLock()
 
-    fun countdown() {
-        var listToResume: List<Continuation<Unit>>? = null
+    fun countDown() {
+        var continuationListToResume: List<Continuation<Unit>>? = null
         lock.withLock {
-            if (counter == 0) {
+            if (count == 0) {
                 return@withLock
             }
-            counter -= 1
-            if (counter == 0) {
-                listToResume = continuationList.toList()
+            count -= 1
+            if (count == 0) {
+                continuationListToResume = continuationList.toList()
+                continuationList.clear()
             }
         }
-        if (listToResume != null) {
-            logger.info("Resuming continuations")
-            listToResume?.forEach {
-                it.resume(Unit)
-            }
-            logger.info("Ending resuming continuations")
+        continuationListToResume?.forEach {
+            it.resume(Unit)
         }
     }
 
     suspend fun await() {
         suspendCoroutine<Unit> { continuation ->
             lock.withLock {
-                if (counter == 0) {
+                if (count == 0) {
                     continuation.resume(Unit)
                 } else {
                     continuationList.add(continuation)
                 }
             }
         }
-        logger.info("ending await")
+        logger.info("await is returning")
     }
 
     companion object {
