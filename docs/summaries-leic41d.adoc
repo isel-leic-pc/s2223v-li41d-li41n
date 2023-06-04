@@ -291,3 +291,20 @@ See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture22[Lecture 2
 ** Creating `suspend` functions to use asynchronous channels in direct style (i.e. synchronously), without blocking threads.
 
 See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture23[Lecture 23 sketches (main)] and link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture23[Lecture 23 sketches (test)].
+
+== Week 14
+
+=== Lecture 24: 2023-05-29
+
+* Cancellation of `suspend` functions execution.
+** The `suspendCancellableCoroutine` function.
+** Running code when cancellation happens, via the `invokeOnCancellation` function on `CancellableContinuation`.
+** Implementation of a cancellable delay function using `suspendCancellableCoroutine`.
+** Supporting cancellation on synchronizers with suspendable functions.
+*** Catching `CancellationException` and ignoring cancellations. 
+
+ee: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture24[Lecture 24 sketches] 
+
+=== Lecture 25. 2023-06-01
+
+* Laboratory class, supporting the development of the third set of exercises.
