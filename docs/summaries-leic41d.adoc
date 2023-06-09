@@ -303,8 +303,24 @@ See: link:../jvm/src/main/kotlin/pt/isel/pc/sketches/leic41d/lecture23[Lecture 2
 ** Supporting cancellation on synchronizers with suspendable functions.
 *** Catching `CancellationException` and ignoring cancellations. 
 
-ee: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture24[Lecture 24 sketches] 
+See: link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture24[Lecture 24 sketches] 
 
 === Lecture 25. 2023-06-01
 
 * Laboratory class, supporting the development of the third set of exercises.
+
+== Week 15
+
+=== Lecture 26: 2023-06-05
+
+* Revisions on the coroutine suport for structured concurrency and the propagation of cancellations and non-cancellation exceptions.
+* Introduction to Kotlin flows. 
+** Motivation: how to define and consume sequences of elements with suspension points.
+** Flow builders.
+** Collection flows.
+** Relation to coroutines.
+** Flow operators.
+** Cold and hot flows.
+** The `SharedFlow` and `StateFlow` built-in flows.
+
+See link:../jvm/src/test/kotlin/pt/isel/pc/sketches/leic41d/lecture26[Lecture 26 sketches] 
